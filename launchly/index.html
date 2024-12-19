@@ -1,6 +1,6 @@
 <!-- <!DOCTYPE html> -->
 
-<html lang="en" class="mdui-theme-dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -403,9 +403,9 @@
                     <div style="display: flex; justify-content: space-between; gap: 12px">
                         <div>
                             <p><b>Theme</b></p>
-                            <p id="themetext">Dark</p>
+                            <p id="themetext">Light</p>
                         </div>
-                        <mdui-switch id="themeswitch" unchecked-icon="light_mode" checked-icon="dark_mode" checked
+                        <mdui-switch id="themeswitch" unchecked-icon="light_mode" checked-icon="dark_mode"
                             style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);">
                             <mdui-icon slot="unchecked-icon" name="light_mode" />
                             <mdui-icon slot="checked-icon" name="dark_mode" />
@@ -481,14 +481,33 @@
     </div>
     <script>
 
-        let dark = false // dark mode
-        themeswitch = document.getElementById("themeswitch");
+        // setup localstorage
+        if (!localStorage.getItem('dark')) {
+            localStorage.setItem('dark', true)
+        }
         themetext = document.getElementById("themetext");
-        let c = function () { themetext.innerText = dark ? "Dark" : "Light" }
+        themeswitch = document.getElementById("themeswitch");
+
+        let dark = localStorage.getItem('dark') // dark mode
+        let loaded = false
+        setTimeout(()=>{
+            mdui.setTheme(dark ? "dark" : "light");
+            if (!loaded) {
+                if (dark) {
+                    document.getElementById("themeswitch").click()
+                }
+                loaded = true
+            }
+            themetext.innerText = dark ? "Dark" : "Light" 
+            document.documentElement.setAttribute('class', dark ? 'mdui-theme-dark' : 'mdui-theme-light')
+            console.log(`Current theme: ${dark ? "Light" : "Dark"}`)
+        },100)
         themeswitch.addEventListener('change', function () {
-            mdui.setTheme(dark ? "dark" : "light")
-            c()
+            if (!loaded) return
             dark = !dark
+            mdui.setTheme(!dark ? "light" : "dark")
+            themetext.innerText = dark ? "Dark" : "Light"
+            localStorage.setItem('dark', dark)
         })
 
         settingsbutton = document.getElementById('settingsbutton');
