@@ -20,6 +20,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- opengraph - discord -->
+    <meta property="og:title" content="Launchly Web Demo">
+    <meta property="og:description" content="Seamlessly switch Minecraft versions with ease.">
+
 
 </head>
 
@@ -157,7 +161,7 @@
                                     content="Broken Installation, please press the wrench icon to look for a fix."><mdui-icon
                                         name="error_outline"
                                         style="color:#ff2222; font-size: 13px;"></mdui-icon></mdui-tooltip><br>
-                                <small>Version: 1.1.16.100.04, Code: 971610004</small><br>
+                                <small>Version: 1.16.100.04, Code: 971610004</small><br>
                                 <small>Architechture: arm64-v8a</small>
                             </div>
                         </div>
@@ -174,15 +178,16 @@
                 </mdui-list-item>
             </mdui-list>
             <div style="text-align: center;">
-                <p><small>3 Installed, 1 Broken, Storage Used: 3.2gb</small></p>
+                <p><small>3 Installed, 1 Broken, Storage Used: 3.2gb out of 34.4gb</small></p>
             </div>
+            
         </div>
 
 
         <!-- fab -->
         <!-- fab -->
         <!-- fab -->
-        <mdui-fab extended icon="add" onclick="mdui.snackbar({'message':'bye', 'action':'fuck you', 'closeable': true})"
+        <mdui-fab extended icon="add" onclick="document.getElementById('versionpickerdialog').open=true;"
             style="position: fixed; bottom:16; right: 16;">
             Add Version
         </mdui-fab>
@@ -256,67 +261,198 @@
             </div>
         </mdui-dialog>
 
+        <!-- version picker -->
+        <!-- version picker -->
+        <!-- version picker -->
+
+        <mdui-dialog id="versionpickerdialog" close-on-overlay-click close-on-esc>
+            <div slot="headline">Select Version</div>
+            <mdui-divider></mdui-divider>
+            <div style="display: flex; align-items: center;">
+                <mdui-text-field label="Search versions..."></mdui-text-field>
+                <div style="padding: 0 4;"></div>
+                <small>Beta</small>
+                <mdui-checkbox></mdui-checkbox>
+            </div>
+            <mdui-tabs value="arm64" full-width style="background-color: transparent;">
+                <mdui-tab value="arm64" autofocus>arm64-v8a</mdui-tab>
+                <mdui-tab value="arm32">armeabi-v7a</mdui-tab>
+
+                <mdui-tab-panel slot="panel" value="arm64">
+                    <mdui-list style="width: 100%;">
+                        <mdui-radio-group value="" style="width: 100%;">
+                            <mdui-list-item nonclickable>
+                                <div class="verlistitem">
+                                    <div>
+                                        1.21.51.02<br>
+                                        <small>Version Code: 972105102</small>
+                                    </div>
+                                    <mdui-radio value="1"></mdui-radio>
+                                </div>
+                            </mdui-list-item>
+                            <mdui-divider middle></mdui-divider>
+                            <mdui-list-item nonclickable>
+                                <div class="verlistitem">
+                                    <div>
+                                        1.21.51.01<br>
+                                        <small>Version Code: 972105101</small>
+                                    </div>
+                                    <mdui-radio value="2"></mdui-radio>
+                                </div>
+                            </mdui-list-item>
+                        </mdui-radio-group>
+                    </mdui-list>
+                </mdui-tab-panel>
+                <mdui-tab-panel slot="panel" value="arm32">arm23</mdui-tab-panel>
+            </mdui-tabs>
+
+            <mdui-button slot="action" variant="text"
+                onclick="document.getElementById('versionpickerdialog').open=false">Cancel</mdui-button>
+            <mdui-button slot="action" variant="tonal"
+                onclick="document.getElementById('versionpickerdialog').open=false; document.getElementById('customizeversiondialog').open=true">Next</mdui-button>
+        </mdui-dialog>
+
+        <!-- customize version -->
+        <!-- customize version -->
+        <!-- customize version -->
+        <mdui-dialog id="customizeversiondialog" close-on-overlay-click close-on-esc stacked-actions
+            style="overflow-x:hidden;" headline="Customize 1.21.51.02">
+            <div class="hidescrollbar">
+                <h6 style="color: rgb(var(--mdui-color-primary-light))">List</h6>
+                <div style="display: flex; width: 100%; overflow: hidden;">
+                    <img class="gameicon" src="https://minecraft.wiki/images/Bedrock_Edition_App_Store_icon_2.png"
+                        width="84" height="84">
+                    <div style="padding: 0 4;"></div>
+                    <mdui-text-field label="Display Name" value="1.21.51.02" style="border-radius: 24px;"></mdui-text-field>
+                </div>
+                <div style="padding: 8 0;"></div>
+                <mdui-button full-width variant="outlined">Select Icon</mdui-button>
+                <div style="padding: 8 0;"></div>
+                <h6 style="color: rgb(var(--mdui-color-primary-light))">Patches</h6>
+                <mdui-list>
+                    <mdui-collapse>
+                        <mdui-collapse-item>
+                            <mdui-list-item slot="header" icon="library_books">Lib Patches
+                                <mdui-icon slot="end-icon" name="keyboard_arrow_down"></mdui-icon>
+                            </mdui-list-item>
+                            <div style="margin-left: 2.5rem">
+                                <div>
+                                    <mdui-checkbox>Increase Nether Height</mdui-checkbox>
+                                    <mdui-slider step="64" min="128" max="2048" tickmarks></mdui-slider>
+                                </div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <mdui-checkbox>Modify Piston Push Limit</mdui-checkbox>
+                                    <mdui-card style="width: 100%; padding: 8px">
+                                        Normal Piston<br>
+                                        <mdui-slider min="1" max="1024" value="12"></mdui-slider>
+                                        Sticky Piston<br>
+                                        <mdui-slider min="1" max="1024" value="12"></mdui-slider>
+                                    </mdui-card>
+                                </div>
+                            </div>
+                        </mdui-collapse-item>
+                    </mdui-collapse>
+                    <mdui-divider middle></mdui-divider>
+                    <mdui-collapse>
+                        <mdui-collapse-item>
+                            <mdui-list-item slot="header" icon="web_asset">Dex Patches
+                                <mdui-icon slot="end-icon" name="keyboard_arrow_down"></mdui-icon>
+                            </mdui-list-item>
+                            <div style="margin-left: 2.5rem">
+                                <div style="word-wrap:break-word;">
+                                    <mdui-checkbox>Change Save Path</mdui-checkbox>
+                                    <p>Changes the worlds/packs path from <code>/storage/emulated/0/android/data/com.mojang.minecraftpe/files/games/com.mojang/</code> to <code>/storage/emulated/0/games/com.mojang/</code></p>
+                                </div>
+                            </div>
+                        </mdui-collapse-item> 
+                    </mdui-collapse>
+                    <mdui-divider middle></mdui-divider>
+                    <mdui-collapse>
+                        <mdui-collapse-item>
+                            <mdui-list-item slot="header" icon="settings">App Patches
+                                <mdui-icon slot="end-icon" name="keyboard_arrow_down"></mdui-icon>
+                            </mdui-list-item>
+                            <div style="margin-left: 2.5rem">
+                                <div>
+                                    <mdui-checkbox>Use different package name</mdui-checkbox><br>
+                                    
+                                    <mdui-checkbox>Change icon</mdui-checkbox> 
+                                </div>
+                            </div>
+                        </mdui-collapse-item>
+                        <mdui-divider middle></mdui-divider>
+                </mdui-list>
+            </div>
+            <mdui-button slot="action">Add version</mdui-button>
+            <mdui-button slot="action" variant="outlined">Add version and download</mdui-button>
+            <mdui-button slot="action" variant="text"
+                onclick="document.getElementById('customizeversiondialog').open=false; document.getElementById('versionpickerdialog').open=true">Back</mdui-button>
+        </mdui-dialog>
+
         <!-- settings -->
         <!-- settings -->
         <!-- settings -->
         <mdui-dialog id="settingsdialog" close-on-overlay-click close-on-esc>
             <div slot="headline">Settings</div>
-            <mdui-divider></mdui-divider>
-            <div style="overflow: hidden;">
-                <!-- theme -->
-                <h6 style="color: rgb(var(--mdui-color-primary-light))">User Interface</h6>
-                <div style="display: flex; justify-content: space-between; gap: 12px">
-                    <div>
-                        <p><b>Theme</b></p>
-                        <p id="themetext">Dark</p>
+            <div class="hidescrollbar">
+
+                <mdui-divider></mdui-divider>
+                <div style="overflow: hidden;">
+                    <!-- theme -->
+                    <h6 style="color: rgb(var(--mdui-color-primary-light))">User Interface</h6>
+                    <div style="display: flex; justify-content: space-between; gap: 12px">
+                        <div>
+                            <p><b>Theme</b></p>
+                            <p id="themetext">Dark</p>
+                        </div>
+                        <mdui-switch id="themeswitch" unchecked-icon="light_mode" checked-icon="dark_mode" checked
+                            style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);">
+                            <mdui-icon slot="unchecked-icon" name="light_mode" />
+                            <mdui-icon slot="checked-icon" name="dark_mode" />
+                        </mdui-switch>
                     </div>
-                    <mdui-switch id="themeswitch" unchecked-icon="light_mode" checked-icon="dark_mode" checked
-                        style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);">
-                        <mdui-icon slot="unchecked-icon" name="light_mode" />
-                        <mdui-icon slot="checked-icon" name="dark_mode" />
-                    </mdui-switch>
-                </div>
-                <!-- theme -->
-                <mdui-divider middle></mdui-divider>
-                <div style="display: flex; justify-content: space-between; gap: 12px">
-                    <div>
-                        <p><b>Use Material You theming</b></p>
-                        <p>Theme based on your device's custom theme (i.e. wallpaper or pallete)</p>
+                    <!-- theme -->
+                    <mdui-divider middle></mdui-divider>
+                    <div style="display: flex; justify-content: space-between; gap: 12px">
+                        <div>
+                            <p><b>Use Material You theming</b></p>
+                            <p>Theme based on your device's custom theme (i.e. wallpaper or pallete)</p>
+                        </div>
+                        <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
                     </div>
-                    <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
-                </div>
-                <mdui-divider middle></mdui-divider>
-                <div style="display: flex; justify-content: space-between; gap: 12px">
-                    <div>
-                        <p><b>Fullscreen Dialogs</b></p>
-                        <p>Makes all the dialog popups fullscreen (like `select version` dialog)</p>
+                    <mdui-divider middle></mdui-divider>
+                    <div style="display: flex; justify-content: space-between; gap: 12px">
+                        <div>
+                            <p><b>Fullscreen Dialogs</b></p>
+                            <p>Makes all the dialog popups fullscreen (like `select version` dialog)</p>
+                        </div>
+                        <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
                     </div>
-                    <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
-                </div>
-                <br />
-                <h6 style="color: rgb(var(--mdui-color-primary-light))">Version List</h6>
-                <div style="display: flex; justify-content: space-between; gap: 12px">
-                    <div>
-                        <p><b>Show Version Code</b></p>
-                        <p>Show the version's version code under it (like 943160055)</p>
+                    <br />
+                    <h6 style="color: rgb(var(--mdui-color-primary-light))">Version List</h6>
+                    <div style="display: flex; justify-content: space-between; gap: 12px">
+                        <div>
+                            <p><b>Show Version Code</b></p>
+                            <p>Show the version's version code under it (like 943160055)</p>
+                        </div>
+                        <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
                     </div>
-                    <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
-                </div>
-                <mdui-divider middle></mdui-divider>
-                <div style="display: flex; justify-content: space-between; gap: 12px">
-                    <div>
-                        <p><b>Show dividers on list</b></p>
-                        <p>Visual: show lines between versions to separate them (like the line below this text)</p>
+                    <mdui-divider middle></mdui-divider>
+                    <div style="display: flex; justify-content: space-between; gap: 12px">
+                        <div>
+                            <p><b>Show dividers on list</b></p>
+                            <p>Visual: show lines between versions to separate them (like the line below this text)</p>
+                        </div>
+                        <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
                     </div>
-                    <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
-                </div>
-                <mdui-divider middle></mdui-divider>
-                <div style="display: flex; justify-content: space-between; gap: 12px">
-                    <div>
-                        <p><b>Combine Versions</b></p>
-                        <p>Combine <code>beta</code> and <code>release</code> into a single list</p>
+                    <mdui-divider middle></mdui-divider>
+                    <div style="display: flex; justify-content: space-between; gap: 12px">
+                        <div>
+                            <p><b>Combine Versions</b></p>
+                            <p>Combine <code>beta</code> and <code>release</code> into a single list</p>
+                        </div>
+                        <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
                     </div>
-                    <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
                 </div>
             </div>
 
@@ -357,15 +493,28 @@
 
         settingsbutton = document.getElementById('settingsbutton');
         settingsdialog = document.getElementById('accountdialog');
+        versionpickerdialog = document.getElementById('versionpickerdialog');
 
-        // settingsbutton.onclick = function () {
-        //     settingsdialog.open = true
-        // }
+        let isTyping = false;
+        let textFields = Array.prototype.slice.call(document.getElementsByTagName('mdui-text-field'));
+        textFields.forEach(tf => {
+            tf.addEventListener('focus', () => {
+                isTyping = true;
+            })
+            tf.addEventListener('blur', () => {
+                isTyping = false;
+            })
+        })
         document.addEventListener("keypress", ev => {
+            if (isTyping) return;
             if (ev.key === "s") {
-                settingsdialog.open = true
+                settingsdialog.open = !settingsdialog.open
+            }
+            if (ev.key === "v") {
+                versionpickerdialog.open = !versionpickerdialog.open
             }
         })
+
         //random color for every divs
         const randomHexColors = [
             `#${Math.floor(Math.random() * 16777215).toString(16)}`,
@@ -390,20 +539,46 @@
             // debugger omg
             // div.style.backgroundColor = randomHexColors[getRandomInt(0,8)]
         });
+
+        // hide those fucking scrollbars inside dialogs
+        const dialogs = Array.prototype.slice.call(document.getElementsByTagName('mdui-dialog'));
+        setTimeout(() => {
+            dialogs.forEach(d => {
+                d.shadowRoot.querySelector('div.panel>div.body').style.cssText = '-ms-overflow-style: none; scrollbar-width: none; $::webkit-scrollbar {display: none;}'
+            })
+        }, 500) // works
+        // dialogs.forEach(d => {
+        //     d.shadowRoot.querySelector('div.panel>div.body').style.cssText = '-ms-overflow-style: none; scrollbar-width: none; $::webkit-scrollbar {display: none;}'
+        // })
     </script>
     <style>
         :root {
             font-family: "Roboto", sans-serif;
-            /* -ms-overflow-style: none;  IE and Edge */
-            /* scrollbar-width: none;  Firefox */
+            /* IE and Edge */
+            -ms-overflow-style: none;
+            /* Firefox */  
+            scrollbar-width: none; 
+            overflow-y: scroll;
             --debug: 0;
+            /* set to 1px */
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        :root::-webkit-scrollbar {
+            display: none; 
         }
 
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        /* :root::-webkit-scrollbar {
-        display: none;
-        } */
+        mdui-dialog::part {
+            overflow-y: scroll;
+            position:relative;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        mdui-dialog::part div div::-webkit-scrollbar {
+            display: none;
+        }
 
+        /* hacky way to hide scrollbars on dialogs */
+        /* mdui-dialog> div.panel.has-default > div */
         div {
             border: var(--debug) solid red;
             margin: var(--debug);
@@ -486,6 +661,13 @@
 
         .gameicon {
             border-radius: 12px;
+        }
+
+        .verlistitem {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            position: relative;
         }
 
         /* tablets */
