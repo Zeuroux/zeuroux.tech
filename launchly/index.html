@@ -440,6 +440,23 @@ Cras sed neque ac massa ultrices tempus.
         <!-- d i a l o g s -->
         <!-- d i a l o g s -->
 
+        <!-- interactive demo message -->
+        <!-- interactive demo message -->
+        <!-- interactive demo message -->
+        <mdui-dialog id="interactivedemomessage" close-on-overlay-click close-on-esc
+            headline="Welcome to Launchly!">
+            <p>This is an interactive web demo for Launchly.<br>
+               Nothing is functional, yet but it will be functional<br>
+               Feel free to poke around the app and tell us what you feel about it.<br>
+                <br><mdui-divider></mdui-divider><br>
+               Dialogs shortcuts for desktop visitors<br> 
+               S - settings<br> 
+               V - version picker<br> 
+               C - confirm selected<br>
+               X - customize version<br>
+               I - This dialog</p>
+            <mdui-button slot="action" onclick="document.getElementById('interactivedemomessage').open=false">Get started</mdui-button>
+        </mdui-dialog>
         <!-- account -->
         <!-- account -->
         <!-- account -->
@@ -587,14 +604,15 @@ Cras sed neque ac massa ultrices tempus.
                 <div style="padding: 8 0;"></div>
                 <mdui-button full-width variant="outlined">Select Icon</mdui-button>
                 <div style="padding: 8 0;"></div>
-                <h6 style="color: rgb(var(--mdui-color-primary-light))">Patches</h6>
+                <h6 style="color: rgb(var(--mdui-color-primary-light))">Changes</h6>
                 <mdui-list>
                     <mdui-collapse>
                         <mdui-collapse-item>
-                            <mdui-list-item slot="header" icon="library_books">Lib Patches
+                            <mdui-list-item slot="header" icon="sports_esports">Gameplay Changes
                                 <mdui-icon slot="end-icon" name="keyboard_arrow_down"></mdui-icon>
                             </mdui-list-item>
                             <div style="margin-left: 2.5rem">
+                                <cite><small>Note: These changes only works on local worlds and some modified servers.</small></cite>
                                 <div>
                                     <mdui-checkbox>Increase Nether Height</mdui-checkbox>
                                     <mdui-slider step="64" min="128" max="2048" tickmarks></mdui-slider>
@@ -609,35 +627,26 @@ Cras sed neque ac massa ultrices tempus.
                                     </mdui-card>
                                 </div>
                             </div>
+                            <div style="padding: 8 0;"></div>
                         </mdui-collapse-item>
                     </mdui-collapse>
                     <mdui-divider middle></mdui-divider>
                     <mdui-collapse>
                         <mdui-collapse-item>
-                            <mdui-list-item slot="header" icon="web_asset">Dex Patches
+                            <mdui-list-item slot="header" icon="web_asset">Application Changes
                                 <mdui-icon slot="end-icon" name="keyboard_arrow_down"></mdui-icon>
                             </mdui-list-item>
                             <div style="margin-left: 2.5rem">
                                 <div style="word-wrap:break-word;">
                                     <mdui-checkbox>Change Save Path</mdui-checkbox>
-                                    <p>Changes the worlds/packs path from <code>/storage/emulated/0/android/data/com.mojang.minecraftpe/files/games/com.mojang/</code> to <code>/storage/emulated/0/games/com.mojang/</code></p>
-                                </div>
-                            </div>
-                        </mdui-collapse-item> 
-                    </mdui-collapse>
-                    <mdui-divider middle></mdui-divider>
-                    <mdui-collapse>
-                        <mdui-collapse-item>
-                            <mdui-list-item slot="header" icon="settings">App Patches
-                                <mdui-icon slot="end-icon" name="keyboard_arrow_down"></mdui-icon>
-                            </mdui-list-item>
-                            <div style="margin-left: 2.5rem">
-                                <div>
+                                    <p style="margin-left:1.5rem;">Changes the worlds/packs path from <code>/storage/emulated/0/android/data/com.mojang.minecraftpe/files/games/com.mojang/</code> to <code>/storage/emulated/0/games/com.mojang/</code></p>
+                                
                                     <mdui-checkbox>Use different package name</mdui-checkbox><br>
                                     
                                     <mdui-checkbox>Change icon</mdui-checkbox> 
                                 </div>
                             </div>
+                            <div style="padding: 8 0;"></div>
                         </mdui-collapse-item>
                         <mdui-divider middle></mdui-divider>
                 </mdui-list>
@@ -654,31 +663,32 @@ Cras sed neque ac massa ultrices tempus.
         <mdui-dialog id="confirmselecteddialog" close-on-overlay-click close-on-esc stacked-actions
             headline="Confirm" description="Are you sure about these settings?">
             <div class="secret">
-                <h6 style="color: rgb(var(--mdui-color-primary-light))">List</h6>
-                <div style="display: flex; width: 100%; overflow: hidden;">
+                <h6 style="color: rgb(var(--mdui-color-primary-light))">Information</h6>
+                <mdui-card class="mclistitem variant">
                     <img class="gameicon" src="https://minecraft.wiki/images/Bedrock_Edition_App_Store_icon_2.png"
-                        width="84" height="84">
+                    width="84" height="84">
                     <div style="padding: 0 4;"></div>
-                    <div>
-                        <small>Display Name</small>
-                        <p>1.21.51.02</p>
-                    </div>
-                </div> 
-                <p>Version: 1.21.51.02<br>
-                Code: 972105102<br>
-                Architechture: arm64-v8a</p>
-                Patches
-                <p>Lib Patch:</p>
+                    <div style="line-height: 1.6;">
+                        MCPE 1.21.51.02<br>
+                        <small>Version: 1.21.51.02, Code: 972105102</small><br>
+                        <small>Architechture: arm64-v8a</small>
+                    </div> 
+                </mdui-card> 
+                <div style="padding: 8 0;"></div>
+                <mdui-divider></mdui-divider>
+                <!-- <p>Version: 1.21.51.02<br> 
+                    Code: 972105102<br>
+                    Architechture: arm64-v8a</p> -->
+                <h6 style="color: rgb(var(--mdui-color-primary-light))">Patches</h6>
+                <p>Gameplay Changes:</p>
                 <ul>
                     <li>Increase Nether Height: 256</li>
                     <li>Modify Piston Push Limit: Normal: 64, Sticky: 64</li>
                 </ul>
-                <p>Dex Patch:</p>
+                <mdui-divider middle></mdui-divider>
+                <p>Application Changes:</p>
                 <ul>
                     <li>Change Save Path</li>
-                </ul>
-                <p>App Patch:</p>
-                <ul>
                     <li>Use different package name</li>
                     <li>Change icon</li>
                 </ul> 
@@ -686,7 +696,7 @@ Cras sed neque ac massa ultrices tempus.
             <mdui-button slot="action" onclick="document.getElementById('confirmselecteddialog').open=false; mdui.snackbar({message:'Added 1.21.51.02 to the list!',action:'Close',onActionClick:()=>{}})">Add version</mdui-button>
             <mdui-button slot="action" variant="text" onclick="document.getElementById('confirmselecteddialog').open=false; mdui.snackbar({message:'Adding and Downloading 1.21.51.02!',action:'Close',onActionClick:()=>{}})">Add and download</mdui-button>
             <mdui-button slot="action" variant="text"
-                onclick="document.getElementById('confirmselecteddialog').open=false;document.getElementById('customizeversiondialog').open=true">Cancel</mdui-button>
+                onclick="document.getElementById('confirmselecteddialog').open=false;document.getElementById('customizeversiondialog').open=true">Go back</mdui-button>
         </mdui-dialog>
 
         <!-- settings -->
@@ -780,6 +790,7 @@ Cras sed neque ac massa ultrices tempus.
             <p>AuroraOSS' GPlayAPI: <a href="https://gitlab.com/AuroraOSS/gplayapi/-/blob/master/LICENSES/Apache-2.0.txt">Apache License 2.0</a>, <a href="https://gitlab.com/AuroraOSS/gplayapi/-/blob/master/LICENSES/GPL-3.0-or-later.txt">GPL 3.0 or later</a></p>
             <p>Ackpine: <a href="https://ackpine.solrudev.ru/#license">Apache License 2.0</a></p>
             <p>MDUI: <a href="https://github.com/zdhxiong/mdui/blob/v2/packages/mdui/LICENSE">MIT License</a></p>
+            <p>dexlib2: <a href="https://github.com/JesusFreke/smali/blob/master/NOTICE">NOTICE</a></p>
         </mdui-dialog>
     </div>
     
@@ -803,8 +814,16 @@ Cras sed neque ac massa ultrices tempus.
                 loaded = true
             }
             themetext.innerText = dark ? "Dark" : "Light" 
-            document.documentElement.setAttribute('class', dark ? 'mdui-theme-dark' : 'mdui-theme-light')
+            document.documentElement.setAttribute('class', dark ? 'mdui-theme-dark' : 'mdui-theme-light') 
             console.log(`Current theme: ${dark ? "Light" : "Dark"}`)
+            // mdui.snackbar({message:"Dialogs shortcuts:<br> S for settings, V for version picker, C for confirm selected, X for customize version",action:'Close',onActionClick:()=>{}})
+            // mdui.snackbar({message:"Feel free to poke around the app and tell us what you feel about it.",action:'Close',onActionClick:()=>{}})
+            // mdui.snackbar({message:"Welcome to this interactive web demo for Launchly!<br> Nothing is functional, yet but it will be functional.",action:'Close',onActionClick:()=>{}})
+            const alertDialogContent = {
+                    headline: "Welcome to this interactive web demo for Launchly!",
+                    description: "Nothing is functional, yet but it will be functional\nFeel free to poke around the app and tell us what you feel about it.<br>Dialogs shortcuts:<br> S for settings, V for version picker, C for confirm selected, X for customize version",
+                }
+            // mdui.dialog(alertDialogContent)
         },100)
         themeswitch.addEventListener('change', function () {
             if (!loaded) return
@@ -818,6 +837,8 @@ Cras sed neque ac massa ultrices tempus.
         settingsdialog = document.getElementById('accountdialog');
         versionpickerdialog = document.getElementById('versionpickerdialog');
         confirmselecteddialog = document.getElementById('confirmselecteddialog');
+        customizeversiondialog = document.getElementById('customizeversiondialog');
+        interactivedemomessage = document.getElementById('interactivedemomessage');
 
         let isTyping = false;
         let textFields = Array.prototype.slice.call(document.getElementsByTagName('mdui-text-field'));
@@ -839,6 +860,12 @@ Cras sed neque ac massa ultrices tempus.
             }
             if (ev.key === "c") {
                 confirmselecteddialog.open = !confirmselecteddialog.open
+            }
+            if (ev.key === "x") {
+                customizeversiondialog.open = !customizeversiondialog.open
+            }
+            if (ev.key === "i") {
+                interactivedemomessage.open = !interactivedemomessage.open
             }
         })
 
@@ -1015,11 +1042,16 @@ Cras sed neque ac massa ultrices tempus.
             margin: -4px;
             width: 100%;
         }
-
+        
+        .mclistitem.variant {
+            align-items: center;
+            background-color: rgb(var(--mdui-color-surface-variant));
+            margin: 0;
+        }
         .mclistitem div {
             height: 84px;
         }
-
+        
         .mclistactions {
             display: flex;
             flex-direction: column;
