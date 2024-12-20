@@ -455,8 +455,8 @@ Cras sed neque ac massa ultrices tempus.
                F - Version picker<br> 
                U - Confirm selected<br>
                C - Customize version<br>
-               K - This dialog</p>
-               S - Settings<br> 
+               K - This dialog<br>
+               S - Settings</p> 
                <mdui-button slot="action" onclick="document.getElementById('interactivedemomessage').open=false">Get started</mdui-button>
         </mdui-dialog>
         <!-- account -->
@@ -829,16 +829,13 @@ Cras sed neque ac massa ultrices tempus.
             if(window.matchMedia('(display-mode: standalone)').matches){
                 mdui.snackbar({message:"oh wow i didnt expect you to actually install this as an app lol -rasp",action:'Close',onActionClick:()=>{}})
             }
-            const request = new XMLHttpRequest();
-            request.open("GET", "./dummy.txt");
-            request.send();
-            request.onreadystatechange = () => {
-                if (request.readyState === 4 && request.status === 200) {
-                    if (!request.getResponseHeader("is-livepreview") === "true") {
-                        document.getElementById('interactivedemomessage').open = true
-                    }
+            const request = new Request('./dummy.txt');
+            
+            window.fetch(request).then(res => {
+                if (!res.headers.has('is-livepreview')) {
+                    document.getElementById('interactivedemomessage').open = true
                 }
-            }
+            })
             // mdui.dialog(alertDialogContent)
         },100)
         themeswitch.addEventListener('change', function () {
