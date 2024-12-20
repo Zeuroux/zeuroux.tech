@@ -1,0 +1,20 @@
+{
+    "short_name": "Launchly",
+    "name": "Launchly: Interactive Web Demo",
+    
+    "icons": [
+      {
+        "src": "sync_alt_48dp.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "sync_alt_128dp.png",
+        "type":"image/png",
+        "sizes":"512x512"
+      }
+    ],
+    "start_url": "?source=pwa",
+    "display": "standalone"
+
+  }
