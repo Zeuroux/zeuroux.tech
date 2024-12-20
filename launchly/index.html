@@ -381,7 +381,7 @@
             <!-- end -->
             <!-- end -->
             <div style="text-align: center;">
-                <p><small>3 Installed, 1 Broken, Storage Used: 3.2gb out of 34.4gb</small></p><br>
+                <p><small>10 Installed, 8 Broken, Storage Used: 33.2gb out of 62.3gb</small></p><br>
             </div>
             <div class="logsui" id="logsui">
                 <!-- <mdui-divider></mdui-divider> -->
@@ -452,12 +452,12 @@ Cras sed neque ac massa ultrices tempus.
                Feel free to poke around the app and tell us what you feel about it.<br>
                 <br><mdui-divider></mdui-divider><br>
                Dialogs shortcuts for desktop visitors<br> 
-               S - settings<br> 
-               V - version picker<br> 
-               C - confirm selected<br>
-               X - customize version<br>
-               I - This dialog</p>
-            <mdui-button slot="action" onclick="document.getElementById('interactivedemomessage').open=false">Get started</mdui-button>
+               F - Version picker<br> 
+               U - Confirm selected<br>
+               C - Customize version<br>
+               K - This dialog</p>
+               S - Settings<br> 
+               <mdui-button slot="action" onclick="document.getElementById('interactivedemomessage').open=false">Get started</mdui-button>
         </mdui-dialog>
         <!-- account -->
         <!-- account -->
@@ -826,6 +826,20 @@ Cras sed neque ac massa ultrices tempus.
                     description: "Nothing is functional, yet but it will be functional\nFeel free to poke around the app and tell us what you feel about it.<br>Dialogs shortcuts:<br> S for settings, V for version picker, C for confirm selected, X for customize version",
                 }
             // mdui.dialog(alertDialogContent)
+            if(window.matchMedia('(display-mode: standalone)').matches){
+                mdui.snackbar({message:"oh wow i didnt expect you to actually install this as an app lol -rasp",action:'Close',onActionClick:()=>{}})
+            }
+            const request = new XMLHttpRequest();
+            request.open("GET", "./dummy.txt");
+            request.send();
+            request.onreadystatechange = () => {
+                if (request.readyState === 4 && request.status === 200) {
+                    if (!request.getResponseHeader("is-livepreview") === "true") {
+                        document.getElementById('interactivedemomessage').open = true
+                    }
+                }
+            }
+            // mdui.dialog(alertDialogContent)
         },100)
         themeswitch.addEventListener('change', function () {
             if (!loaded) return
@@ -854,21 +868,22 @@ Cras sed neque ac massa ultrices tempus.
         })
         document.addEventListener("keypress", ev => {
             if (isTyping) return;
+            if (ev.key === "f") {
+                versionpickerdialog.open = !versionpickerdialog.open
+            }
+            if (ev.key === "u") {
+                confirmselecteddialog.open = !confirmselecteddialog.open
+            }
+            if (ev.key === "c") {
+                customizeversiondialog.open = !customizeversiondialog.open
+            }
+            if (ev.key === "k") {
+                interactivedemomessage.open = !interactivedemomessage.open
+            }
             if (ev.key === "s") {
                 settingsdialog.open = !settingsdialog.open
             }
-            if (ev.key === "v") {
-                versionpickerdialog.open = !versionpickerdialog.open
-            }
-            if (ev.key === "c") {
-                confirmselecteddialog.open = !confirmselecteddialog.open
-            }
-            if (ev.key === "x") {
-                customizeversiondialog.open = !customizeversiondialog.open
-            }
-            if (ev.key === "i") {
-                interactivedemomessage.open = !interactivedemomessage.open
-            }
+            //lmfao
         })
 
         //random color for every divs

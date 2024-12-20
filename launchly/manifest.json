@@ -2,7 +2,7 @@
   "$schema": "http://json.schemastore.org/web-manifest",
   "short_name": "Launchly",
   "name": "Launchly: Interactive Web Demo",
-  "description": "Seamlessly switch between Minecraft",
+  "description": "Seamlessly switch between Minecraft® Bedrock Edition versions.",
   "scope": "/",
   "icons":[
     {
