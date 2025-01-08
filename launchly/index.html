@@ -1,962 +1,121 @@
-<!-- <!DOCTYPE html> -->
-
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Launchly: Interactive Web Demo</title>
-    <link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
-    <!-- lmfao -->
-    <script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
-    <script src="https://unpkg.com/mdui@2/jq.js" type="module"></script>
-    <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
-    <!-- <script src="https://unpkg.com/mdui@2/mdui.js"></script> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <!-- opengraph - discord -->
-    <meta property="og:title" content="Launchly Web Demo">
-    <meta property="og:description" content="Seamlessly switch Minecraft® Bedrock Edition versions with ease.">
-    <meta property="og:image" content="https://zeuroux.tech/favicon.png">
-    <!-- progressive web app -->
-    <link rel="manifest" href="./manifest.json">
-    <link rel="icon" type="image/png" href="../favicon.png">
-
-</head>
-
+<!DOCTYPE html>
+<html lang="en" class="mdui-theme-dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Launchly</title>
+        <link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
+        <!-- lmfao -->
+        <script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
+        <script src="https://unpkg.com/mdui@2/jq.js" type="module"></script>
+        <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+        <!-- <script src="https://unpkg.com/mdui@2/mdui.js"></script> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <!-- opengraph - discord -->
+        <meta property="og:title" content="Launchly">
+        <meta property="og:description" content="Seamlessly manage Minecraft® Bedrock Edition versions with ease.">
+        <meta property="og:image" content="https://zeuroux.tech/favicon.png">
+        <link rel="icon" type="image/png" href="../favicon.png">
+    
+    </head>
 <body>
-    
-    <div id="onboarding">
-        <div id="obpage1" class="obpage">
-            <div>
-                <mdui-icon id="obicon" name="sync_alt--outline" class="obicon"></mdui-icon>
-            </div>
-            <div style="text-align: center;">
-                <h1>Launchly</h1>
-                <p>Seamlessly switch Minecraft versions with ease.</p>
-                <div style="height:32px"></div>
-                <div>
-                    <mdui-button
-                        onclick="window.scrollTo({top:document.getElementById('obpage2').getBoundingClientRect().top+window.scrollY,behavior:'smooth'})">Get
-                        Started</mdui-button>
-                </div>
-                <div style="height:32px"></div>
-            </div>
-        </div>
-        <div class="obpage" id="obpage2">
-            <mdui-icon id="obicon" name="account_circle" class="obicon"></mdui-icon>
-
-            <div style="text-align: center;">
-                <h1>Sign in with Google</h1>
-                <p>Sign in with the Google account you used to purchase<br />Minecraft® Bedrock Edition from Google Play
-                    Store.<br><br><cite>Note: You cannot use this app to pirate Minecraft,<br> please buy the
-                        game.</cite>
-                </p>
-                <div style="height:128px"></div>
-                <!--mdui-button onclick="mdui.snackbar({'message':document.querySelector('#obicon').offsetWidth})">Sign in with Google
-                <mdui-icon slot="icon" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"></mdui-icon>
-                </mdui-button-->
-                <div>
-                    <!-- makes mdui-button not stretched-->
-                    <mdui-button class="loginbutton">
-                        <div>
-                            Signed in as Raspberry</br>
-                            <small>raspberryepicly@gmail.com</small>
-                        </div>
-                        <mdui-avatar slot="icon"
-                            src="https://cdn.discordapp.com/avatars/561366963381862417/da5e720a6bdc09eda2ed87ba635f9f58.png?size=2048"></mdui-avatar>
-                    </mdui-button>
-                </div>
-                <div style="height:48px"></div>
-                <div
-                    style="text-align: start; display: flex; justify-content: space-between; position: sticky; bottom: 24;">
-                    <mdui-button-icon icon="arrow_back_ios_new" style="color: rgb(var(--mdui-color-primary))"
-                        onclick="document.getElementById('obpage1').scrollIntoView({block: 'end',inline: 'nearest'})"></mdui-button-icon>
-                    <mdui-button-icon icon="arrow_forward_ios"
-                        style="color: rgb(var(--mdui-color-primary))"></mdui-button-icon>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!--  ------------------------------------------------------------------------------------  -->
-    <!--  --------------------------------------mainpage--------------------------------------  -->
-    <!--  ------------------------------------------------------------------------------------  -->
-    <div id="mainpage">
-        <mdui-top-app-bar style="position: relative; box-shadow: var(--mdui-elevation-level2);">
-            <mdui-top-app-bar-title><b>Launchly</b></mdui-top-app-bar-title>
-            <div>
-                <!-- <mdui-button-icon sizeicon="settings" id="settingsbutton" onclick="" /> -->
-                <mdui-card style="width:40px; height: 40px; border-radius: 50%;" clickable
-                    onclick="document.getElementById('accountdialog').open=true;">
-                    <mdui-avatar
-                        src="https://cdn.discordapp.com/avatars/561366963381862417/da5e720a6bdc09eda2ed87ba635f9f58.png?size=2048"></mdui-avatar>
-                </mdui-card>
-            </div>
-            <!-- <mdui-button-icon icon="dark_mode" id="themeswitch"/> -->
+    <mdui-layout>
+        <mdui-top-app-bar style="position: relative;">
+            <mdui-button-icon icon="menu" id="burger"></mdui-button-icon>
+            <mdui-top-app-bar-title>Launchly</mdui-top-app-bar-title>
+            <div style="flex-grow: 1"></div>
+            <mdui-button variant="outlined" icon="download" onclick="mdui.alert({headline:'Soon™',description:'We\'re still working on it please wait until this app launches.'})">
+                Download
+            </mdui-button>
         </mdui-top-app-bar>
-        <mdui-divider></mdui-divider>
-        <div style="padding:0px">
-            <mdui-list>
-                <mdui-list-item nonclickable>
-                    <div class="mclistitem">
-                        <div style="display: flex; width: 100%;">
-                            <img class="gameicon"
-                                src="https://minecraft.wiki/images/Bedrock_Edition_App_Store_icon_2.png" width="84"
-                                height="84">
-                            <div style="padding: 0 4;"></div>
-                            <div style="width: 100%">
-                                Minecraft 1.21.51.02<br>
-                                <small>Version: 1.21.52.02, Code: 972105102</small><br>
-                                <small>Architechture: arm64-v8a</small>
-                            </div>
-                        </div>
-                        <div class="mclistactions">
-                            <mdui-tooltip content="Play">
-                                <mdui-button-icon icon="play_arrow" variant="filled"></mdui-button-icon>
-                            </mdui-tooltip>
-                            <div style="padding: 2 0;"></div>
-                            <mdui-tooltip content="Modify">
-                                <mdui-button-icon icon="build" variant="filled"></mdui-button-icon>
-                            </mdui-tooltip>
-                        </div>
-                    </div>
-                </mdui-list-item>
-                <mdui-list-item nonclickable>
-                    <div class="mclistitem">
-                        <div style="display: flex; width: 100%;">
-                            <img class="gameicon" src="https://atlasclient.net/static/atlas.webp" width="84"
-                                height="84">
-                            <div style="padding: 0 4;"></div>
 
-                            <div style="width: 100%">
-                                Minecraft for Atlas Client 1.4.1<br>
-                                <small>Version: 1.21.44.01, Code: 972105028</small><br>
-                                <small>Architechture: arm64-v8a</small>
-                            </div>
-                        </div>
-                        <div class="mclistactions">
-                            <mdui-tooltip content="Install">
-                                <mdui-button-icon icon="install_mobile" variant="filled"></mdui-button-icon>
-                            </mdui-tooltip>
-                            <div style="padding: 2 0;"></div>
-                            <mdui-tooltip content="Modify">
-                                <mdui-button-icon icon="build" variant="filled"></mdui-button-icon>
-                            </mdui-tooltip>
-                        </div>
-                    </div>
-                </mdui-list-item>
-                <mdui-list-item nonclickable>
-                    <div class="mclistitem">
-                        <div style="display: flex; width: 100%;">
-                            <img class="gameicon"
-                                src="https://media.discordapp.net/attachments/1188496706128580619/1318984475899854919/IMG_20240910_191527_526.jpg?ex=67644f84&is=6762fe04&hm=a7967e7503b7c99fc1864adc18f73fd0ba4452ab58a923f49b1431bf5c754450&=&format=webp&width=661&height=661"
-                                width="84" height="84">
-                            <div style="padding: 0 4;"></div>
-
-                            <div style="width: 100%">
-                                Minecraft 1.16.100 <mdui-tooltip
-                                    content="Broken Installation, please press the wrench icon to look for a fix."><mdui-icon
-                                        name="error_outline"
-                                        style="color:#ff2222; font-size: 13px;"></mdui-icon></mdui-tooltip><br>
-                                <small>Version: 1.16.100.04, Code: 971610004</small><br>
-                                <small>Architechture: arm64-v8a</small>
-                            </div>
-                        </div>
-                        <div class="mclistactions">
-                            <mdui-tooltip content="Install">
-                                <mdui-button-icon icon="install_mobile" variant="filled" disabled=""></mdui-button-icon>
-                            </mdui-tooltip>
-                            <div style="padding: 2 0;"></div>
-                            <mdui-tooltip content="Modify">
-                                <mdui-button-icon icon="build" variant="filled"></mdui-button-icon>
-                            </mdui-tooltip>
-                        </div>
-                    </div>
-                </mdui-list-item>
-                <mdui-list-item nonclickable>
-                    <div class="mclistitem">
-                        <div style="display: flex; width: 100%;">
-                            <img class="gameicon"
-                                src="https://media.discordapp.net/attachments/1188496706128580619/1318984475899854919/IMG_20240910_191527_526.jpg?ex=67644f84&is=6762fe04&hm=a7967e7503b7c99fc1864adc18f73fd0ba4452ab58a923f49b1431bf5c754450&=&format=webp&width=661&height=661"
-                                width="84" height="84">
-                            <div style="padding: 0 4;"></div>
-
-                            <div style="width: 100%">
-                                Minecraft 1.16.100 <mdui-tooltip
-                                    content="Broken Installation, please press the wrench icon to look for a fix."><mdui-icon
-                                        name="error_outline"
-                                        style="color:#ff2222; font-size: 13px;"></mdui-icon></mdui-tooltip><br>
-                                <small>Version: 1.16.100.04, Code: 971610004</small><br>
-                                <small>Architechture: arm64-v8a</small>
-                            </div>
-                        </div>
-                        <div class="mclistactions">
-                            <mdui-tooltip content="Install">
-                                <mdui-button-icon icon="install_mobile" variant="filled" disabled=""></mdui-button-icon>
-                            </mdui-tooltip>
-                            <div style="padding: 2 0;"></div>
-                            <mdui-tooltip content="Modify">
-                                <mdui-button-icon icon="build" variant="filled"></mdui-button-icon>
-                            </mdui-tooltip>
-                        </div>
-                    </div>
-                </mdui-list-item>
-                <mdui-list-item nonclickable>
-                    <div class="mclistitem">
-                        <div style="display: flex; width: 100%;">
-                            <img class="gameicon"
-                                src="https://media.discordapp.net/attachments/1188496706128580619/1318984475899854919/IMG_20240910_191527_526.jpg?ex=67644f84&is=6762fe04&hm=a7967e7503b7c99fc1864adc18f73fd0ba4452ab58a923f49b1431bf5c754450&=&format=webp&width=661&height=661"
-                                width="84" height="84">
-                            <div style="padding: 0 4;"></div>
-
-                            <div style="width: 100%">
-                                Minecraft 1.16.100 <mdui-tooltip
-                                    content="Broken Installation, please press the wrench icon to look for a fix."><mdui-icon
-                                        name="error_outline"
-                                        style="color:#ff2222; font-size: 13px;"></mdui-icon></mdui-tooltip><br>
-                                <small>Version: 1.16.100.04, Code: 971610004</small><br>
-                                <small>Architechture: arm64-v8a</small>
-                            </div>
-                        </div>
-                        <div class="mclistactions">
-                            <mdui-tooltip content="Install">
-                                <mdui-button-icon icon="install_mobile" variant="filled" disabled=""></mdui-button-icon>
-                            </mdui-tooltip>
-                            <div style="padding: 2 0;"></div>
-                            <mdui-tooltip content="Modify">
-                                <mdui-button-icon icon="build" variant="filled"></mdui-button-icon>
-                            </mdui-tooltip>
-                        </div>
-                    </div>
-                </mdui-list-item>
-                <mdui-list-item nonclickable>
-                    <div class="mclistitem">
-                        <div style="display: flex; width: 100%;">
-                            <img class="gameicon"
-                                src="https://media.discordapp.net/attachments/1188496706128580619/1318984475899854919/IMG_20240910_191527_526.jpg?ex=67644f84&is=6762fe04&hm=a7967e7503b7c99fc1864adc18f73fd0ba4452ab58a923f49b1431bf5c754450&=&format=webp&width=661&height=661"
-                                width="84" height="84">
-                            <div style="padding: 0 4;"></div>
-
-                            <div style="width: 100%">
-                                Minecraft 1.16.100 <mdui-tooltip
-                                    content="Broken Installation, please press the wrench icon to look for a fix."><mdui-icon
-                                        name="error_outline"
-                                        style="color:#ff2222; font-size: 13px;"></mdui-icon></mdui-tooltip><br>
-                                <small>Version: 1.16.100.04, Code: 971610004</small><br>
-                                <small>Architechture: arm64-v8a</small>
-                            </div>
-                        </div>
-                        <div class="mclistactions">
-                            <mdui-tooltip content="Install">
-                                <mdui-button-icon icon="install_mobile" variant="filled" disabled=""></mdui-button-icon>
-                            </mdui-tooltip>
-                            <div style="padding: 2 0;"></div>
-                            <mdui-tooltip content="Modify">
-                                <mdui-button-icon icon="build" variant="filled"></mdui-button-icon>
-                            </mdui-tooltip>
-                        </div>
-                    </div>
-                </mdui-list-item>
-                <mdui-list-item nonclickable>
-                    <div class="mclistitem">
-                        <div style="display: flex; width: 100%;">
-                            <img class="gameicon"
-                                src="https://media.discordapp.net/attachments/1188496706128580619/1318984475899854919/IMG_20240910_191527_526.jpg?ex=67644f84&is=6762fe04&hm=a7967e7503b7c99fc1864adc18f73fd0ba4452ab58a923f49b1431bf5c754450&=&format=webp&width=661&height=661"
-                                width="84" height="84">
-                            <div style="padding: 0 4;"></div>
-
-                            <div style="width: 100%">
-                                Minecraft 1.16.100 <mdui-tooltip
-                                    content="Broken Installation, please press the wrench icon to look for a fix."><mdui-icon
-                                        name="error_outline"
-                                        style="color:#ff2222; font-size: 13px;"></mdui-icon></mdui-tooltip><br>
-                                <small>Version: 1.16.100.04, Code: 971610004</small><br>
-                                <small>Architechture: arm64-v8a</small>
-                            </div>
-                        </div>
-                        <div class="mclistactions">
-                            <mdui-tooltip content="Install">
-                                <mdui-button-icon icon="install_mobile" variant="filled" disabled=""></mdui-button-icon>
-                            </mdui-tooltip>
-                            <div style="padding: 2 0;"></div>
-                            <mdui-tooltip content="Modify">
-                                <mdui-button-icon icon="build" variant="filled"></mdui-button-icon>
-                            </mdui-tooltip>
-                        </div>
-                    </div>
-                </mdui-list-item>
-                <mdui-list-item nonclickable>
-                    <div class="mclistitem">
-                        <div style="display: flex; width: 100%;">
-                            <img class="gameicon"
-                                src="https://media.discordapp.net/attachments/1188496706128580619/1318984475899854919/IMG_20240910_191527_526.jpg?ex=67644f84&is=6762fe04&hm=a7967e7503b7c99fc1864adc18f73fd0ba4452ab58a923f49b1431bf5c754450&=&format=webp&width=661&height=661"
-                                width="84" height="84">
-                            <div style="padding: 0 4;"></div>
-
-                            <div style="width: 100%">
-                                Minecraft 1.16.100 <mdui-tooltip
-                                    content="Broken Installation, please press the wrench icon to look for a fix."><mdui-icon
-                                        name="error_outline"
-                                        style="color:#ff2222; font-size: 13px;"></mdui-icon></mdui-tooltip><br>
-                                <small>Version: 1.16.100.04, Code: 971610004</small><br>
-                                <small>Architechture: arm64-v8a</small>
-                            </div>
-                        </div>
-                        <div class="mclistactions">
-                            <mdui-tooltip content="Install">
-                                <mdui-button-icon icon="install_mobile" variant="filled" disabled=""></mdui-button-icon>
-                            </mdui-tooltip>
-                            <div style="padding: 2 0;"></div>
-                            <mdui-tooltip content="Modify">
-                                <mdui-button-icon icon="build" variant="filled"></mdui-button-icon>
-                            </mdui-tooltip>
-                        </div>
-                    </div>
-                </mdui-list-item>
-                <mdui-list-item nonclickable>
-                    <div class="mclistitem">
-                        <div style="display: flex; width: 100%;">
-                            <img class="gameicon"
-                                src="https://media.discordapp.net/attachments/1188496706128580619/1318984475899854919/IMG_20240910_191527_526.jpg?ex=67644f84&is=6762fe04&hm=a7967e7503b7c99fc1864adc18f73fd0ba4452ab58a923f49b1431bf5c754450&=&format=webp&width=661&height=661"
-                                width="84" height="84">
-                            <div style="padding: 0 4;"></div>
-
-                            <div style="width: 100%">
-                                Minecraft 1.16.100 <mdui-tooltip
-                                    content="Broken Installation, please press the wrench icon to look for a fix."><mdui-icon
-                                        name="error_outline"
-                                        style="color:#ff2222; font-size: 13px;"></mdui-icon></mdui-tooltip><br>
-                                <small>Version: 1.16.100.04, Code: 971610004</small><br>
-                                <small>Architechture: arm64-v8a</small>
-                            </div>
-                        </div>
-                        <div class="mclistactions">
-                            <mdui-tooltip content="Install">
-                                <mdui-button-icon icon="install_mobile" variant="filled" disabled=""></mdui-button-icon>
-                            </mdui-tooltip>
-                            <div style="padding: 2 0;"></div>
-                            <mdui-tooltip content="Modify">
-                                <mdui-button-icon icon="build" variant="filled"></mdui-button-icon>
-                            </mdui-tooltip>
-                        </div>
-                    </div>
-                </mdui-list-item>
-                <mdui-list-item nonclickable>
-                    <div class="mclistitem">
-                        <div style="display: flex; width: 100%;">
-                            <img class="gameicon"
-                                src="https://media.discordapp.net/attachments/1188496706128580619/1318984475899854919/IMG_20240910_191527_526.jpg?ex=67644f84&is=6762fe04&hm=a7967e7503b7c99fc1864adc18f73fd0ba4452ab58a923f49b1431bf5c754450&=&format=webp&width=661&height=661"
-                                width="84" height="84">
-                            <div style="padding: 0 4;"></div>
-
-                            <div style="width: 100%">
-                                Minecraft 1.16.100 <mdui-tooltip
-                                    content="Broken Installation, please press the wrench icon to look for a fix."><mdui-icon
-                                        name="error_outline"
-                                        style="color:#ff2222; font-size: 13px;"></mdui-icon></mdui-tooltip><br>
-                                <small>Version: 1.16.100.04, Code: 971610004</small><br>
-                                <small>Architechture: arm64-v8a</small>
-                            </div>
-                        </div>
-                        <div class="mclistactions">
-                            <mdui-tooltip content="Install">
-                                <mdui-button-icon icon="install_mobile" variant="filled" disabled=""></mdui-button-icon>
-                            </mdui-tooltip>
-                            <div style="padding: 2 0;"></div>
-                            <mdui-tooltip content="Modify">
-                                <mdui-button-icon icon="build" variant="filled"></mdui-button-icon>
-                            </mdui-tooltip>
-                        </div>
-                    </div>
-                </mdui-list-item>
-            </mdui-list>
-
-            <!-- end -->
-            <!-- end -->
-            <!-- end -->
-            <div style="text-align: center;">
-                <p><small>10 Installed, 8 Broken, Storage Used: 33.2gb out of 62.3gb</small></p><br>
-            </div>
-            <div class="logsui" id="logsui">
-                <!-- <mdui-divider></mdui-divider> -->
-                <div>
-                    <h1>Logs</h1> 
-                    <div style="margin-right: 12px;">
-                        <mdui-button-icon icon="copy_all" onclick="copyLogs()"></mdui-button-icon>
-                        <mdui-button-icon icon="fullscreen_exit" id="resizelogs" onclick="resizeLogs()"></mdui-button-icon> 
-                        <mdui-button-icon icon="close" onclick="toggleLogs()"></mdui-button-icon> 
-                    </div>
-                </div>
-                <mdui-divider></mdui-divider>
-                <div class="logs" id="logs">
-                    <pre id="logpre"><code id="logcode">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Duis at dolor non purus semper auctor ac nec est.
-Nullam faucibus justo vel nibh porta, at hendrerit dolor auctor.
-Donec gravida ligula sed elit tempus luctus.
-Vivamus a metus cursus, volutpat eros in, laoreet urna.
-
-Etiam eget dui quis lorem convallis fringilla a ut enim.
-Morbi malesuada neque quis magna tempor luctus at sit amet felis.
-Nam porta ex ac enim tincidunt, sit amet maximus arcu eleifend.
-Suspendisse ultricies nisi vitae magna blandit pulvinar.
-Integer dictum tortor vitae laoreet vestibulum.
-Integer vel massa et erat fermentum luctus eget quis dolor.
-
-Donec id elit in mauris lobortis imperdiet.
-Maecenas egestas nunc sed rhoncus hendrerit.
-Proin quis turpis at elit tempor venenatis.
-
-Vestibulum ac nibh laoreet, efficitur libero ut, tempus turpis.
-Integer dictum velit eget tellus mattis, vitae finibus mauris placerat.
-Sed tristique lacus vehicula, pulvinar enim eu, vulputate metus.
-Fusce consequat nulla nec lorem elementum, nec rutrum dui viverra.
-In at metus nec est ornare fringilla.
-Duis vel magna imperdiet, facilisis erat sed, imperdiet arcu.
-
-Maecenas pulvinar augue at magna fermentum sollicitudin.
-Cras sed neque ac massa ultrices tempus.
-
-                    </code></pre>
-                </div>
-            </div> 
-        </div>
-        
-
-
-        <!-- fab -->
-        <!-- fab -->
-        <!-- fab -->
-        <mdui-fab extended icon="add" onclick="document.getElementById('versionpickerdialog').open=true;"
-            id='fab'>
-            Add Version
-        </mdui-fab>
-
-        <!-- d i a l o g s -->
-        <!-- d i a l o g s -->
-        <!-- d i a l o g s -->
-
-        <!-- interactive demo message -->
-        <!-- interactive demo message -->
-        <!-- interactive demo message -->
-        <mdui-dialog id="interactivedemomessage" close-on-overlay-click close-on-esc
-            headline="Welcome to Launchly!">
-            <p>This is an interactive web demo for Launchly.<br>
-               Nothing is functional yet, but it will be functional soon<br>
-               Feel free to poke around the app and tell us on <a href="https://discord.gg/FZz68WWZM6">discord</a> what you feel about it.<br><br>
-               Note: this app will release on android only, this web demo is possible using MDUI that is basically jetpack compose but web<br>
-               
-                <br><mdui-divider></mdui-divider><br>
-               Dialogs shortcuts for desktop visitors<br> 
-               F - Version picker<br> 
-               U - Confirm selected<br>
-               C - Customize version<br>
-               K - This dialog<br>
-               S - Settings</p> 
-               <mdui-button slot="action" onclick="document.getElementById('interactivedemomessage').open=false">Get started</mdui-button>
-        </mdui-dialog>
-        <!-- account -->
-        <!-- account -->
-        <!-- account -->
-        <mdui-dialog id="accountdialog" close-on-overlay-click close-on-esc>
-            <!-- <div style="display: flex; align-items: center; ">
-                <mdui-button-icon icon="close" onclick="document.getElementById('accountdialog').open=false"></mdui-button-icon>
-                <p>Launchly</p>
-            </div>  -->
-            <div style="display: flex; flex-direction: column; justify-content: space-between;">
-                <mdui-card variant="elevated" style="width:100%; height: fit-content; padding:12px; border-radius: 24px;
-                           display: flex; justify-content: center; align-content: center; flex-direction: column;">
-                    <div style="display: flex;  padding: 12px;">
-                        <mdui-avatar
-                            src="https://cdn.discordapp.com/avatars/561366963381862417/da5e720a6bdc09eda2ed87ba635f9f58.png?size=2048"></mdui-avatar>
-                        <div style="margin-left: 24px;">Raspberry Epicly<br><small>raspberryepicly@gmail.com</small>
-                        </div>
-                    </div>
-                    <br>
-                    <mdui-button variant="outlined">Manage your account</mdui-button>
-                </mdui-card>
-
-                <!-- account card ^^^  -->
-                <div>
-                    <!-- <mdui-divider></mdui-divider> -->
-                    <mdui-menu style="background-color: transparent; border-radius: 24px;">
-                        <mdui-menu-item>
-                            <mdui-icon slot="icon" name="all_inbox"></mdui-icon>
-                            Manage installations
-                        </mdui-menu-item>
-                        <mdui-divider middle></mdui-divider>
-                        <mdui-menu-item onclick="toggleLogs()">
-                            <mdui-icon slot="icon" name="terminal"></mdui-icon>
-                            Show Logs
-                        </mdui-menu-item>
-                        <mdui-divider middle></mdui-divider>
-                        <mdui-menu-item onclick="document.getElementById('settingsdialog').open=true;">
-                            <mdui-icon slot="icon" name="settings_applications"></mdui-icon>
-                            Settings
-                        </mdui-menu-item>
-                        <mdui-divider middle></mdui-divider>
-                        <mdui-menu-item onclick="document.getElementById('aboutdialog').open=true;">
-                            <mdui-icon slot="icon" name="info"></mdui-icon>
-                            About
-                        </mdui-menu-item>
-                    </mdui-menu>
-                    <div style="display: flex; overflow: hidden; align-items: center; justify-content: space-evenly;">
-                        <small>
-                            <a>Privacy Policy</a>
-                            •
-                            <a>Terms of Service</a>
-                        </small>
-                    </div>
-                </div>
-            </div>
-        </mdui-dialog>
-
-        <!-- version picker -->
-        <!-- version picker -->
-        <!-- version picker -->
-
-        <mdui-dialog id="versionpickerdialog" close-on-overlay-click close-on-esc>
-            <div slot="headline">Select Version</div>
-            <mdui-divider></mdui-divider>
-            <div style="display: flex; align-items: center;">
-                <mdui-text-field label="Search versions..."></mdui-text-field>
-                <div style="padding: 0 4;"></div>
-                <small>Beta</small>
-                <mdui-checkbox></mdui-checkbox>
-            </div>
-            <mdui-tabs value="arm64" full-width style="background-color: transparent;">
-                <mdui-tab value="arm64" autofocus>arm64-v8a</mdui-tab>
-                <mdui-tab value="arm32">armeabi-v7a</mdui-tab>
-
-                <mdui-tab-panel slot="panel" value="arm64">
-                    <mdui-list style="width: 100%;">
-                        <mdui-radio-group value="" style="width: 100%;">
-                            <mdui-list-item nonclickable>
-                                <div class="verlistitem">
-                                    <div>
-                                        1.21.51.02<br>
-                                        <small>Version Code: 972105102</small>
-                                    </div>
-                                    <mdui-radio value="1"></mdui-radio>
-                                </div>
-                            </mdui-list-item>
-                            <mdui-divider middle></mdui-divider>
-                            <mdui-list-item nonclickable>
-                                <div class="verlistitem">
-                                    <div>
-                                        1.21.51.01<br>
-                                        <small>Version Code: 972105101</small>
-                                    </div>
-                                    <mdui-radio value="2"></mdui-radio>
-                                </div>
-                            </mdui-list-item>
-                        </mdui-radio-group>
-                    </mdui-list>
-                </mdui-tab-panel>
-                <mdui-tab-panel slot="panel" value="arm32">
-                    <mdui-list style="width: 100%;">
-                        <mdui-radio-group value="" style="width: 100%;">
-                            <mdui-list-item nonclickable>
-                                <div class="verlistitem">
-                                    <div>
-                                        1.21.51.01<br>
-                                        <small>Version Code: 972105101</small>
-                                    </div>
-                                    <mdui-radio value="1"></mdui-radio>
-                                </div>
-                            </mdui-list-item>
-                            <mdui-divider middle></mdui-divider>
-                            <mdui-list-item nonclickable>
-                                <div class="verlistitem">
-                                    <div>
-                                        1.21.51.02<br>
-                                        <small>Version Code: 972105102</small>
-                                    </div>
-                                    <mdui-radio value="2"></mdui-radio>
-                                </div>
-                            </mdui-list-item>
-                        </mdui-radio-group>
-                    </mdui-list>
-                </mdui-tab-panel>
-            </mdui-tabs>
-
-            <mdui-button slot="action" variant="text"
-                onclick="document.getElementById('versionpickerdialog').open=false">Cancel</mdui-button>
-            <mdui-button slot="action"
-                onclick="document.getElementById('versionpickerdialog').open=false; document.getElementById('customizeversiondialog').open=true">Next</mdui-button>
-        </mdui-dialog>
-
-        <!-- customize version -->
-        <!-- customize version -->
-        <!-- customize version -->
-        <mdui-dialog id="customizeversiondialog" close-on-overlay-click close-on-esc
-            style="overflow-x:hidden;" headline="Customize 1.21.51.02">
-            <div class="hidescrollbar">
-                <h6 style="color: rgb(var(--mdui-color-primary-light))">List</h6>
-                <div style="display: flex; width: 100%; overflow: hidden;">
-                    <img class="gameicon" src="https://minecraft.wiki/images/Bedrock_Edition_App_Store_icon_2.png"
-                        width="84" height="84">
-                    <div style="padding: 0 4;"></div>
-                    <mdui-text-field label="Display Name" value="1.21.51.02" style="border-radius: 24px;"></mdui-text-field>
-                </div>
-                <div style="padding: 8 0;"></div>
-                <mdui-button full-width variant="outlined">Select Icon</mdui-button>
-                <div style="padding: 8 0;"></div>
-                <h6 style="color: rgb(var(--mdui-color-primary-light))">Changes</h6>
-                <mdui-list>
-                    <mdui-collapse>
-                        <mdui-collapse-item>
-                            <mdui-list-item slot="header" icon="sports_esports">Gameplay Changes
-                                <mdui-icon slot="end-icon" name="keyboard_arrow_down"></mdui-icon>
-                            </mdui-list-item>
-                            <div style="margin-left: 2.5rem">
-                                <cite><small>Note: These changes only works on local worlds and some modified servers.</small></cite>
-                                <div>
-                                    <mdui-checkbox>Increase Nether Height</mdui-checkbox>
-                                    <mdui-slider step="64" min="128" max="2048" tickmarks></mdui-slider>
-                                </div>
-                                <div style="display: flex; flex-direction: column;">
-                                    <mdui-checkbox>Modify Piston Push Limit</mdui-checkbox>
-                                    <mdui-card style="width: 100%; padding: 8px">
-                                        Normal Piston<br>
-                                        <mdui-slider min="1" max="1024" value="12"></mdui-slider>
-                                        Sticky Piston<br>
-                                        <mdui-slider min="1" max="1024" value="12"></mdui-slider>
-                                    </mdui-card>
-                                </div>
-                            </div>
-                            <div style="padding: 8 0;"></div>
-                        </mdui-collapse-item>
-                    </mdui-collapse>
-                    <mdui-divider middle></mdui-divider>
-                    <mdui-collapse>
-                        <mdui-collapse-item>
-                            <mdui-list-item slot="header" icon="web_asset">Application Changes
-                                <mdui-icon slot="end-icon" name="keyboard_arrow_down"></mdui-icon>
-                            </mdui-list-item>
-                            <div style="margin-left: 2.5rem">
-                                <div style="word-wrap:break-word;">
-                                    <mdui-checkbox>Change Save Path</mdui-checkbox>
-                                    <p style="margin-left:1.5rem;">Changes the worlds/packs path from <code>/storage/emulated/0/android/data/com.mojang.minecraftpe/files/games/com.mojang/</code> to <code>/storage/emulated/0/games/com.mojang/</code></p>
-                                
-                                    <mdui-checkbox>Use different package name</mdui-checkbox><br>
-                                    
-                                    <mdui-checkbox>Change icon</mdui-checkbox> 
-                                </div>
-                            </div>
-                            <div style="padding: 8 0;"></div>
-                        </mdui-collapse-item>
-                        <mdui-divider middle></mdui-divider>
-                </mdui-list>
-            </div>
-            <mdui-button slot="action" variant="text"
-                onclick="document.getElementById('customizeversiondialog').open=false; document.getElementById('versionpickerdialog').open=true">Back</mdui-button>
-            <mdui-button slot="action"
-                onclick="document.getElementById('confirmselecteddialog').open=true;document.getElementById('customizeversiondialog').open=false">Next</mdui-button>
-        </mdui-dialog>
-
-        <!-- confirm selected -->
-        <!-- confirm selected -->
-        <!-- confirm selected -->
-        <mdui-dialog id="confirmselecteddialog" close-on-overlay-click close-on-esc stacked-actions
-            headline="Confirm" description="Are you sure about these settings?">
-            <div class="secret">
-                <h6 style="color: rgb(var(--mdui-color-primary-light))">Information</h6>
-                <mdui-card class="mclistitem variant">
-                    <img class="gameicon" src="https://minecraft.wiki/images/Bedrock_Edition_App_Store_icon_2.png"
-                    width="84" height="84">
-                    <div style="padding: 0 4;"></div>
-                    <div style="line-height: 1.6;">
-                        MCPE 1.21.51.02<br>
-                        <small>Version: 1.21.51.02, Code: 972105102</small><br>
-                        <small>Architechture: arm64-v8a</small>
-                    </div> 
-                </mdui-card> 
-                <div style="padding: 8 0;"></div>
-                <mdui-divider></mdui-divider>
-                <!-- <p>Version: 1.21.51.02<br> 
-                    Code: 972105102<br>
-                    Architechture: arm64-v8a</p> -->
-                <h6 style="color: rgb(var(--mdui-color-primary-light))">Patches</h6>
-                <p>Gameplay Changes:</p>
-                <ul>
-                    <li>Increase Nether Height: 256</li>
-                    <li>Modify Piston Push Limit: Normal: 64, Sticky: 64</li>
-                </ul>
-                <mdui-divider middle></mdui-divider>
-                <p>Application Changes:</p>
-                <ul>
-                    <li>Change Save Path</li>
-                    <li>Use different package name</li>
-                    <li>Change icon</li>
-                </ul> 
-            </div>
-            <mdui-button slot="action" onclick="document.getElementById('confirmselecteddialog').open=false; mdui.snackbar({message:'Added 1.21.51.02 to the list!',action:'Close',onActionClick:()=>{}})">Add version</mdui-button>
-            <mdui-button slot="action" variant="text" onclick="document.getElementById('confirmselecteddialog').open=false; mdui.snackbar({message:'Adding and Downloading 1.21.51.02!',action:'Close',onActionClick:()=>{}})">Add and download</mdui-button>
-            <mdui-button slot="action" variant="text"
-                onclick="document.getElementById('confirmselecteddialog').open=false;document.getElementById('customizeversiondialog').open=true">Go back</mdui-button>
-        </mdui-dialog>
-
-        <!-- settings -->
-        <!-- settings -->
-        <!-- settings -->
-        <mdui-dialog id="settingsdialog" close-on-overlay-click close-on-esc>
-            <div slot="headline">Settings</div>
-            <div class="hidescrollbar">
-
-                <mdui-divider></mdui-divider>
-                <div style="overflow: hidden;">
-                    <!-- theme -->
-                    <h6 style="color: rgb(var(--mdui-color-primary-light))">User Interface</h6>
-                    <div style="display: flex; justify-content: space-between; gap: 12px">
-                        <div>
-                            <p><b>Theme</b></p>
-                            <p id="themetext">Light</p>
-                        </div>
-                        <mdui-switch id="themeswitch" unchecked-icon="light_mode" checked-icon="dark_mode"
-                            style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);">
-                            <mdui-icon slot="unchecked-icon" name="light_mode" />
-                            <mdui-icon slot="checked-icon" name="dark_mode" />
-                        </mdui-switch>
-                    </div>
-                    <!-- theme -->
-                    <mdui-divider middle></mdui-divider>
-                    <div style="display: flex; justify-content: space-between; gap: 12px">
-                        <div>
-                            <p><b>Use Material You theming</b></p>
-                            <p>Theme based on your device's custom theme (i.e. wallpaper or pallete)</p>
-                        </div>
-                        <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
-                    </div>
-                    <mdui-divider middle></mdui-divider>
-                    <div style="display: flex; justify-content: space-between; gap: 12px">
-                        <div>
-                            <p><b>Fullscreen Dialogs</b></p>
-                            <p>Makes all the dialog popups fullscreen (like `select version` dialog)</p>
-                        </div>
-                        <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
-                    </div>
-                    <br />
-                    <h6 style="color: rgb(var(--mdui-color-primary-light))">Version List</h6>
-                    <div style="display: flex; justify-content: space-between; gap: 12px">
-                        <div>
-                            <p><b>Show Version Code</b></p>
-                            <p>Show the version's version code under it (like 943160055)</p>
-                        </div>
-                        <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
-                    </div>
-                    <mdui-divider middle></mdui-divider>
-                    <div style="display: flex; justify-content: space-between; gap: 12px">
-                        <div>
-                            <p><b>Show dividers on list</b></p>
-                            <p>Visual: show lines between versions to separate them (like the line below this text)</p>
-                        </div>
-                        <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
-                    </div>
-                    <mdui-divider middle></mdui-divider>
-                    <div style="display: flex; justify-content: space-between; gap: 12px">
-                        <div>
-                            <p><b>Combine Versions</b></p>
-                            <p>Combine <code>beta</code> and <code>release</code> into a single list</p>
-                        </div>
-                        <mdui-switch style="flex-shrink: 0; position: relative; top: 50%; transform: translateY(25%);" />
-                    </div>
-                </div>
-            </div>
-
-            <!-- actions  -->
-            <mdui-button slot="action" variant="text"
-                onclick="document.getElementById('settingsdialog').open=false">Cancel</mdui-button>
-            <mdui-button slot="action" variant="tonal"
-                onclick="document.getElementById('settingsdialog').open=false">Save</mdui-button>
-
-        </mdui-dialog>
-
-        <!-- about -->
-        <!-- about -->
-        <!-- about -->
-        <mdui-dialog id="aboutdialog" close-on-overlay-click close-on-esc headline="Launchly"
-            description="Seamlessly switch between Minecraft® Bedrock Edition versions.">
-            <mdui-divider middle></mdui-divider>
-            <p>Programmer: @zeuroux (https://zeuroux.com/)</p>
-            <p>UI Designer: @raspberryepicly (https://epiclyraspberry.github.io/)</p>
-            <mdui-divider></mdui-divider>
-            <h3>Open Source Software Licenses</h3>
-            <p>Material Design Icons: <a
-                    href="https://github.com/google/material-design-icons/blob/master/LICENSE">Apache License 2.0</a>
-            </p>
-            <p>AuroraOSS' GPlayAPI: <a href="https://gitlab.com/AuroraOSS/gplayapi/-/blob/master/LICENSES/Apache-2.0.txt">Apache License 2.0</a>, <a href="https://gitlab.com/AuroraOSS/gplayapi/-/blob/master/LICENSES/GPL-3.0-or-later.txt">GPL 3.0 or later</a></p>
-            <p>Ackpine: <a href="https://ackpine.solrudev.ru/#license">Apache License 2.0</a></p>
-            <p>MDUI: <a href="https://github.com/zdhxiong/mdui/blob/v2/packages/mdui/LICENSE">MIT License</a></p>
-            <p>dexlib2: <a href="https://github.com/JesusFreke/smali/blob/master/NOTICE">NOTICE</a></p>
-        </mdui-dialog>
-    </div>
-    
-    <script>
-
-        // setup localstorage
-        if (!localStorage.getItem('dark')) {
-            localStorage.setItem('dark', true)
-        }
-        themetext = document.getElementById("themetext");
-        themeswitch = document.getElementById("themeswitch");
-
-        let dark = localStorage.getItem('dark') // dark mode
-        let loaded = false
-        setTimeout(()=>{
-            mdui.setTheme(dark ? "dark" : "light");
-            if (!loaded) {
-                if (dark) {
-                    document.getElementById("themeswitch").click()
-                }
-                loaded = true
-            }
-            themetext.innerText = dark ? "Dark" : "Light" 
-            document.documentElement.setAttribute('class', dark ? 'mdui-theme-dark' : 'mdui-theme-light') 
-            console.log(`Current theme: ${dark ? "Light" : "Dark"}`)
-            // mdui.snackbar({message:"Dialogs shortcuts:<br> S for settings, V for version picker, C for confirm selected, X for customize version",action:'Close',onActionClick:()=>{}})
-            // mdui.snackbar({message:"Feel free to poke around the app and tell us what you feel about it.",action:'Close',onActionClick:()=>{}})
-            // mdui.snackbar({message:"Welcome to this interactive web demo for Launchly!<br> Nothing is functional, yet but it will be functional.",action:'Close',onActionClick:()=>{}})
-            const alertDialogContent = {
-                    headline: "Welcome to this interactive web demo for Launchly!",
-                    description: "Nothing is functional yet, but it will be functional\nFeel free to poke around the app and tell us what you feel about it.<br>Dialogs shortcuts:<br> S for settings, V for version picker, C for confirm selected, X for customize version",
-                }
-            // mdui.dialog(alertDialogContent)
-            if(window.matchMedia('(display-mode: standalone)').matches){
-                mdui.snackbar({message:"oh wow i didnt expect you to actually install this as an app lol -rasp",action:'Close',onActionClick:()=>{}})
-            }
-            const request = new Request('./dummy.txt');
+        <mdui-navigation-drawer close-on-overlay-click id="navdrawer">
+            <mdui-top-app-bar style="position: relative;" id="drawerbar">
+                <mdui-button-icon icon="arrow_back" id="meatball"></mdui-button-icon>
+                <mdui-top-app-bar-title>Navigation</mdui-top-app-bar-title>
+            </mdui-top-app-bar>
             
-            window.fetch(request).then(res => {
-                if (!res.headers.has('is-livepreview')) {
-                    document.getElementById('interactivedemomessage').open = true
+            <mdui-divider></mdui-divider>
+            <mdui-list id="navbarlist">
+                <mdui-list-item>
+                    <div>
+                        <mdui-icon>home</mdui-icon>
+                        <div>Home</div>
+                    </div>
+                </mdui-list-item>
+                <mdui-divider middle></mdui-divider>
+                <mdui-list-item>
+                    <div>
+                        <mdui-icon>auto_fix_high</mdui-icon>
+                        <div>Features</div>
+                    </div>
+                </mdui-list-item>
+                <mdui-divider middle></mdui-divider>
+                <mdui-list-item>
+                    <div>
+                        <mdui-icon>download</mdui-icon>
+                        <div>Download</div>
+                    </div>
+                </mdui-list-item>
+                <mdui-divider middle></mdui-divider>
+                <mdui-list-item>
+                    <div>
+                        <mdui-icon>question_answer</mdui-icon>
+                        <div>Support</div>
+                    </div>
+                </mdui-list-item>
+                
+            </mdui-list>
+        </mdui-navigation-drawer>
+        <!-- <mdui-divider vertical></mdui-divider> -->
+        <mdui-layout-main style="height: 98vh;" id="main">
+            <mdui-icon style="font-size: 16rem;">sync_alt</mdui-icon>
+            <h1>Launchly</h1>
+            Seamlessly manage Minecraft® Bedrock Edition versions with ease.
+            <br>
+            <br>
+            <p>This web demo may or may accurately replicate the final product's UI, please download the app to fully experience Launchly</p>
+            <a href="/launchly/demo">Click here to launch demo</a>
+            <br>
+            <br>
+            <cite>Site made with <a href="https://www.mdui.org/en/docs/2/">MDUI</a> and love ♥</cite>
+        </mdui-layout-main>
+        
+    </mdui-layout>
+
+    <!-- script -->
+    <!-- script -->
+    <!-- script -->
+    <script>
+        let burger = document.getElementById("burger");
+        let meatball = document.getElementById("meatball");
+        let drawer = document.getElementById("navdrawer")
+        const tada = ()=> {
+            drawer.open = !drawer.open;
+        }
+        burger.addEventListener("click", tada)
+        meatball.addEventListener("click", tada)
+        setTimeout(() => {
+            windowWidth = window.innerWidth;
+            if (windowWidth > 840) {
+                document.getElementById("drawerbar").style.display = "none"
+                drawer.open = true;
+            }
+            drawer.querySelectorAll("mdui-list-item").forEach(item => {
+                if (windowWidth < 840) {
+                    item.addEventListener("click", tada)
                 }
             })
-            // mdui.dialog(alertDialogContent)
-        },100)
-        themeswitch.addEventListener('change', function () {
-            if (!loaded) return
-            dark = !dark
-            mdui.setTheme(!dark ? "light" : "dark")
-            themetext.innerText = dark ? "Dark" : "Light"
-            localStorage.setItem('dark', dark)
-        })
-
-        settingsbutton = document.getElementById('settingsbutton');
-        settingsdialog = document.getElementById('accountdialog');
-        versionpickerdialog = document.getElementById('versionpickerdialog');
-        confirmselecteddialog = document.getElementById('confirmselecteddialog');
-        customizeversiondialog = document.getElementById('customizeversiondialog');
-        interactivedemomessage = document.getElementById('interactivedemomessage');
-
-        let isTyping = false;
-        let textFields = Array.prototype.slice.call(document.getElementsByTagName('mdui-text-field'));
-        textFields.forEach(tf => {
-            tf.addEventListener('focus', () => {
-                isTyping = true;
-            })
-            tf.addEventListener('blur', () => {
-                isTyping = false;
-            })
-        })
-        document.addEventListener("keypress", ev => {
-            if (isTyping) return;
-            if (ev.key === "f") {
-                versionpickerdialog.open = !versionpickerdialog.open
-            }
-            if (ev.key === "u") {
-                confirmselecteddialog.open = !confirmselecteddialog.open
-            }
-            if (ev.key === "c") {
-                customizeversiondialog.open = !customizeversiondialog.open
-            }
-            if (ev.key === "k") {
-                interactivedemomessage.open = !interactivedemomessage.open
-            }
-            if (ev.key === "s") {
-                settingsdialog.open = !settingsdialog.open
-            }
-            //lmfao
-        })
-
-        //random color for every divs
-        const randomHexColors = [
-            `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-            `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-            `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-            `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-            `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-            `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-            `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-            `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-            `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-            `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-            `#${Math.floor(Math.random() * 16777215).toString(16)}`
-        ];
-        function getRandomInt(min, max) {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min) + min);
-        }
-        const divs = Array.prototype.slice.call(document.getElementsByTagName('div'));
-        divs.forEach(div => {
-            // debugger omg
-            // div.style.backgroundColor = randomHexColors[getRandomInt(0,8)]
-        });
- 
-        // hide those fucking scrollbars inside dialogs
-        const dialogs = Array.prototype.slice.call(document.getElementsByTagName('mdui-dialog'));
-        setTimeout(() => {
-            dialogs.forEach(d => {
-                d.shadowRoot.querySelector('div.panel>div.body').style.cssText = '-ms-overflow-style: none; scrollbar-width: none; $::webkit-scrollbar {display: none;}'
-                // anti 15px width reduction (fuck you mdui)
-                d.addEventListener('open',()=>{
-                    const htmlElement = document.documentElement;
-                    const currentWidth = parseInt(getComputedStyle(htmlElement).width); 
-                    htmlElement.style.width = `${currentWidth + 15}px`; 
-                })
-            })
-        }, 500) 
-        function toggleLogs() {
-            document.getElementById('logsui').style.display = document.getElementById('logsui').style.display === 'none' ? 'block' : 'none';
-        }
-        document.getElementById('resizelogs').click() //preclick, doesnt work on first click
-        toggleLogs() // same reason
-        function resizeLogs() {
-            document.getElementById('logsui').style.height = document.getElementById('logsui').style.height === '30vh' ? '100%' : '30vh';
-            document.getElementById('logpre').style.height = document.getElementById('logpre').style.height === '16vh' ? '100%' : '16vh'; 
-            document.getElementById('resizelogs').setAttribute('icon', document.getElementById('resizelogs').getAttribute('icon') === 'fullscreen_exit' ? 'fullscreen' : 'fullscreen_exit')
-        }
-        function copyLogs() {
-            navigator.clipboard.writeText(document.getElementById('logcode').innerText);
-            mdui.snackbar({message:'Logs copied!',action:'Close',onActionClick:()=>{}})
-        }
-        let lastScrollTop = 0;
-        const fab = document.getElementById('fab');
-        window.addEventListener('scroll', () => {
-            let st = window.scrollY || document.documentElement.scrollTop; // Gets the current scroll position
-
-            if (st > lastScrollTop){
-                // downscroll code
-                console.log('down')
-                fab.classList.add('hidden')
-            } else {
-                // upscroll code
-                console.log('up')
-                fab.classList.remove('hidden')
-            }
-            lastScrollTop = st;
-        });
-
-        
+        }, 250);
     </script>
+
     <style>
         html {
             width: 100% !important; 
@@ -970,186 +129,34 @@ Cras sed neque ac massa ultrices tempus.
             /* overflow-y: scroll; */
             /* --debug: 1px; */
             /* set to 1px */
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
         }
         /* Hide scrollbar for Chrome, Safari and Opera */
         :root::-webkit-scrollbar {
             display: none; 
         }
-
-        div {
-            border: var(--debug) solid red;
-            margin: var(--debug);
-            /* for debugging purposes */
-        }
-
-        mdui-avatar {
-            border: -20px solid red;
-        }
-
-        .slideleft {
-            transform: translateX(-100%);
-            transition: all 1s ease;
-        }
-
-        .obicon {
-            position: relative;
-            font-size: 40vw;
-            cursor: default;
-            top: 8vh;
-        }
-
-        .obpage {
-            width: 100%;
-            height: 100%;
+        #navbarlist mdui-list-item div {
+            /* position: relative; */
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            transition: all 1s ease;
-            text-align: center;
+            flex-direction: row;
+            align-items: center;
+            /* text-align: center; */
+            height: 48px;
+        }
+        #navbarlist mdui-list-item div mdui-icon {
+            margin: 4px;
+            margin-right: 32px;
+            font-size: 40px;
         }
 
-        .obpage>div {
+        #main {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .loginbutton>mdui-button {
-            height: 20px;
-        }
-
-        #mainpage {
-            /* position: relative;  */
-            display: static;
-            height: 100%;
-            z-index: -0;
-        }
-
-        #onboarding {
-            display: none;
-            padding: 0;
-            /* overflow-y: hidden; */
-            /* height: 100%; */
-            scroll-behavior: smooth;
-
-        }
-
-        #fab {
-            position: fixed; 
-            bottom: 16px; 
-            right: 16px; 
-            z-index: 3;
-            transition: all .3 ease;
-        }
-        #fab.hidden {
-            transform: translateY(520px);
-        }
-        body {
-            padding: 0;
-            margin: 0;
-            /* overflow:hidden; */
-        }
-
-        .mclistitem {
-            display: flex;
             align-items: center;
-            background-color: rgb(var(--mdui-color-surface-container-high));
-            padding: 8px;
-            border-radius: 16px;
-            margin: -4px;
-            width: 100%;
-        }
-        
-        .mclistitem.variant {
-            align-items: center;
-            background-color: rgb(var(--mdui-color-surface-variant));
-            margin: 0;
-        }
-        .mclistitem div {
-            height: 84px;
-        }
-        
-        .mclistactions {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .gameicon {
-            border-radius: 12px;
-        }
-
-        .verlistitem {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            position: relative;
-        }
-
-        .logsui {
-            display: none; 
-            height: 30vh;
-            position: sticky; 
-            bottom: 0;
-            z-index: 2;
-            background-color: rgb(var(--mdui-color-surface-container-high));
-            border-radius: 24px 24px 0px 0px;
-            transition: all .5s ease;
-            /* padding: 2px 8px; */
-        }
-        .logsui h1 {
-            /* padding */
-            position: relative;
-            /* top:42px; */
-            padding-left:24px;
-            padding-top:12px;
-        }
-        .logsui pre { 
-            /* background-color: rgb(var(--mdui-color-surface)); */
-            height: 16vh;
-            /* overflow-y: clip; */
-            width: 100%; 
-            padding: -4px 8px; 
-            transition: all .5s var(--mdui-motion-easing-standard);
-        }
-        .logsui code {
-            font-size: var(--mdui-typescale-body-small-size);
-            /* background-color: rgb(var(--mdui-color-on-surface)); */
-        }
-        .logsui>div {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            /* padding: 8px; */
-        }
-        .logs {
-            padding-left: 8px; 
-            padding-right: 8px;  
-            overflow: auto;
-        }
-
-        /* tablets */
-        @media only screen and (min-width: 570px) {
-            .obicon {
-                font-size: 40vh;
-                position: static;
-            }
-
-            .obpage {
-                display: flex;
-                align-items: center;
-            }
-        }
-
-        @media only screen and (max-width: 480px) {
-            /* .mclistitem {
-                flex-direction: column;
-            } */
-            /* .mslistactions {
-                width: 100%;
-                align-items: start;
-            } */
+            justify-content: center;
         }
     </style>
 </body>
-
 </html>
