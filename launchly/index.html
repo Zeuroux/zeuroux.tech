@@ -60,6 +60,13 @@
                 <mdui-divider middle></mdui-divider>
                 <mdui-list-item>
                     <div>
+                        <mdui-icon>image</mdui-icon>
+                        <div>Screenshots</div>
+                    </div>
+                </mdui-list-item>
+                <mdui-divider middle></mdui-divider>
+                <mdui-list-item>
+                    <div>
                         <mdui-icon>download</mdui-icon>
                         <div>Download</div>
                     </div>
@@ -75,17 +82,45 @@
             </mdui-list>
         </mdui-navigation-drawer>
         <!-- <mdui-divider vertical></mdui-divider> -->
-        <mdui-layout-main style="height: 98vh;" id="main">
-            <mdui-icon style="font-size: 16rem;">sync_alt</mdui-icon>
-            <h1>Launchly</h1>
-            A bloated Minecraft® Bedrock Edition version switcher.
-            <br>
-            <br>
-            <p>This web demo may or may accurately replicate the final product's UI, please download the app to fully experience Launchly</p>
-            <a href="/launchly/demo">Click here to launch demo</a>
-            <br>
-            <br>
+        <mdui-layout-main style="height: min-content; overflow-x:hidden;" id="main">
+            <div id="home">
+                <mdui-icon style="font-size: 16rem;">sync_alt</mdui-icon>
+                <h1>Launchly</h1>
+                A bloated Minecraft® Bedrock Edition version switcher.
+                <br>
+                <br>
+                <p>This web demo may or may accurately replicate the final product's UI, please download the app to fully experience Launchly</p>
+                <a href="/launchly/demo">Click here to launch demo</a>
+                <br>
+                <br>
+            </div>
+            <div id="features">
+                <h1>Features</h1>
+                <ul style="text-align: start;">
+                    <li>Version Switching</li>
+                    <li>Managing Downloaded Versions (customizing icons, names, etc.)</li>
+                    <li>Making Modifications</li><br>
+                    Modifications: 
+                    <li>Force External Storage<button onclick="mdui.alert({headline:'Force External Storage',description:'Changes the worlds/packs path from /storage/emulated/0/android/data/com.mojang.minecraftpe/files/games/com.mojang/ to /storage/emulated/0/games/com.mojang/. Basically reverts this change: https://feedback.minecraft.net/hc/en-us/articles/4412728960141-Minecraft-Beta-1-18-0-25-Xbox-One-Windows-10-Android'})">?</button></li>
+                    <li>MaterialBinLoader2<button onclick="mdui.alert({headline:'MaterialBinLoader2', description:'Makes you able to load RenderDragon/Deferred Shaders using regular packs in Minecraft using MaterialBinLoader'})">?</button></li>
+                    <li>AndroidModLoader<button onclick="mdui.alert({headline:'AndroidModLoader',description:'Load up C++ mods inside Minecraft using https://github.com/RusJJ/AndroidModLoader/, for advance users only.'})">?</button></li>
+                </ul>
+            </div>
+            <div id="screenshots">
+                <h1>Screenshots</h1>
+                <div id="sscarousel">
+                    <img src="./screenshot1.webp">
+                    <img src="./screenshot2.webp">
+                    <img src="./screenshot3.webp">
+                    <img src="./screenshot4.webp">
+                    <img src="./screenshot5.webp">
+                    <img src="./screenshot6.webp">
+                    <img src="./screenshot7.webp">
+                    <img src="./screenshot8.webp">
+                </div>
+            </div>
             <p>Copyright © 2025 Tape Creation Laboratories • NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT</p>
+
             <cite>Site made with <a href="https://www.mdui.org/en/docs/2/">MDUI</a> and love ♥</cite>
         </mdui-layout-main>
         
@@ -158,6 +193,28 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+        }
+
+        #features li>button {
+            /* display: flex; */
+            background-color: transparent;
+            border: none
+        }
+        #sscarousel {
+            display: inline-block;
+        }
+        #screenshots {
+            overflow: auto;
+            white-space: nowrap;
+            padding: 5px 70px 5px 20px;
+            background: transparent;
+            height: 100%;
+            border-radius:15px;
+            
+        }
+        #sscarousel img {
+            border-radius: 16px;
+
         }
     </style>
 </body>
