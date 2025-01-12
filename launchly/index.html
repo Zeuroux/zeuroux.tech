@@ -22,43 +22,49 @@
         <meta property="og:title" content="Launchly">
         <meta property="og:description" content="Seamlessly manage Minecraft® Bedrock Edition versions with ease.">
         <meta property="og:image" content="https://zeuroux.tech/favicon.png">
-        <link rel="icon" type="image/png" href="../favicon.png">
+        <link rel="icon" type="image/png" href="../ic_launcher_foreground.svg" type="image/svg+xml">
     
     </head>
-<body>
-    <mdui-layout>
-        <mdui-top-app-bar style="position: relative;">
-            <mdui-button-icon icon="menu" id="burger"></mdui-button-icon>
+    <body>
+        <mdui-layout>
+            <mdui-top-app-bar style="position: relative;" id="topbar">
+                <mdui-button-icon id="burger"><mdui-icon>
+                    <svg id="vector" xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 500 500"><g transform="translate(-300, -300) scale(2.2, 2.2)" id="g_0"><path fill="#FFFFFFFF" d="M242.15,272.4C237.75,271.8 234.25,268.3 233.65,263.9L233.65,215L221.15,215L221.15,262.7C221.15,266.2 221.95,269.5 223.45,272.5C225.55,276.9 229.15,280.5 233.55,282.7C236.55,284.2 239.85,285 243.35,285L278.85,285L278.85,272.5L242.15,272.4Z"/></g></svg>
+            </mdui-icon></mdui-button-icon>
             <mdui-top-app-bar-title>Launchly</mdui-top-app-bar-title>
             <div style="flex-grow: 1"></div>
-            <mdui-button variant="outlined" icon="download" onclick="mdui.alert({headline:'Soon™',description:'We\'re still working on it please wait until this app launches.'})">
+            <mdui-button variant="outlined" icon="download" onclick="alert('Please join our discord server if you want to get help/support about Launchly.');window.open('https://github.com/zeuroux/launchly/releases/latest','_blank')">
                 Download
             </mdui-button>
+            <mdui-button variant="outlined" onclick="window.open('https://github.com/zeuroux/launchly','_blank')">
+                GitHub
+            </mdui-button>
+            
         </mdui-top-app-bar>
 
-        <mdui-navigation-drawer close-on-overlay-click id="navdrawer">
+        <!-- <mdui-navigation-drawer close-on-overlay-click id="navdrawer">
             <mdui-top-app-bar style="position: relative;" id="drawerbar">
                 <mdui-button-icon icon="arrow_back" id="meatball"></mdui-button-icon>
                 <mdui-top-app-bar-title>Navigation</mdui-top-app-bar-title>
+                <mdui-divider></mdui-divider>
             </mdui-top-app-bar>
             
-            <mdui-divider></mdui-divider>
             <mdui-list id="navbarlist">
-                <mdui-list-item>
+                <mdui-list-item onclick="document.getElementById('home').scrollIntoView();">
                     <div>
                         <mdui-icon>home</mdui-icon>
                         <div>Home</div>
                     </div>
                 </mdui-list-item>
                 <mdui-divider middle></mdui-divider>
-                <mdui-list-item>
+                <mdui-list-item onclick="document.getElementById('features').scrollIntoView();">
                     <div>
                         <mdui-icon>auto_fix_high</mdui-icon>
                         <div>Features</div>
                     </div>
                 </mdui-list-item>
                 <mdui-divider middle></mdui-divider>
-                <mdui-list-item>
+                <mdui-list-item onclick="location.href = '#screenshots'">
                     <div>
                         <mdui-icon>image</mdui-icon>
                         <div>Screenshots</div>
@@ -80,17 +86,24 @@
                 </mdui-list-item>
                 
             </mdui-list>
-        </mdui-navigation-drawer>
+        </mdui-navigation-drawer> -->
         <!-- <mdui-divider vertical></mdui-divider> -->
         <mdui-layout-main style="height: min-content; overflow-x:hidden;" id="main">
+        <mdui-divider></mdui-divider> 
             <div id="home">
-                <mdui-icon style="font-size: 16rem;">sync_alt</mdui-icon>
+                <mdui-icon style="font-size: 24rem;">
+                    <svg id="vector" xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 500 500"><g transform="translate(-300, -300) scale(2.2, 2.2)" id="g_0"><path fill="#FFFFFFFF" d="M242.15,272.4C237.75,271.8 234.25,268.3 233.65,263.9L233.65,215L221.15,215L221.15,262.7C221.15,266.2 221.95,269.5 223.45,272.5C225.55,276.9 229.15,280.5 233.55,282.7C236.55,284.2 239.85,285 243.35,285L278.85,285L278.85,272.5L242.15,272.4Z"/></g></svg>
+                </mdui-icon>
                 <h1>Launchly</h1>
-                A bloated Minecraft® Bedrock Edition version switcher.
+                An open-source Minecraft®: Bedrock Edition version switcher.<br>
+                <cite><small>
+                    Note: you have to buy Minecraft from the Google Play Store in order to use this, we do not support piracy.<br>
+                    This is not a piracy app.
+                </small></cite>
                 <br>
                 <br>
-                <p>This web demo may or may accurately replicate the final product's UI, please download the app to fully experience Launchly</p>
-                <a href="/launchly/demo">Click here to launch demo</a>
+                <!-- <p>This web demo may or may accurately replicate the final product's UI, please download the app to fully experience Launchly</p>
+                <a href="/launchly/demo">Click here to launch demo</a> -->
                 <br>
                 <br>
             </div>
@@ -99,8 +112,8 @@
                 <ul style="text-align: start;">
                     <li>Version Switching</li>
                     <li>Managing Downloaded Versions (customizing icons, names, etc.)</li>
-                    <li>Making Modifications</li><br>
-                    Modifications: 
+                    <li>Making Modifications (Soon™)</li><br>
+                    Modifications (Soon™): 
                     <li>Force External Storage<button onclick="mdui.alert({headline:'Force External Storage',description:'Changes the worlds/packs path from /storage/emulated/0/android/data/com.mojang.minecraftpe/files/games/com.mojang/ to /storage/emulated/0/games/com.mojang/. Basically reverts this change: https://feedback.minecraft.net/hc/en-us/articles/4412728960141-Minecraft-Beta-1-18-0-25-Xbox-One-Windows-10-Android'})">?</button></li>
                     <li>MaterialBinLoader2<button onclick="mdui.alert({headline:'MaterialBinLoader2', description:'Makes you able to load RenderDragon/Deferred Shaders using regular packs in Minecraft using MaterialBinLoader'})">?</button></li>
                     <li>AndroidModLoader<button onclick="mdui.alert({headline:'AndroidModLoader',description:'Load up C++ mods inside Minecraft using https://github.com/RusJJ/AndroidModLoader/, for advance users only.'})">?</button></li>
@@ -119,6 +132,13 @@
                     <img src="./screenshot8.webp">
                 </div>
             </div>
+            <mdui-divider></mdui-divider> 
+            <div id="downloads">
+                <h1>Downloads</h1>
+                You can download Launchly by going into <a href="https://github.com/zeuroux/launchly/releases/latest/">Github Releases</a> or by going into our <a href="https://discord.gg/FZz68WWZM6" target="_blank" rel="noopener noreferrer">Discord Server</a>
+            </div>
+            <br>
+            <p>If you need any help or inquiry about Launchly, please join our <a href="https://discord.gg/FZz68WWZM6" target="_blank" rel="noopener noreferrer">Discord Server</a> so we can help you out.</p>
             <p>Copyright © 2025 Tape Creation Laboratories • NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT</p>
 
             <cite>Site made with <a href="https://www.mdui.org/en/docs/2/">MDUI</a> and love ♥</cite>
@@ -204,16 +224,18 @@
             display: inline-block;
         }
         #screenshots {
-            overflow: auto;
+            /* overflow: auto;
             white-space: nowrap;
             padding: 5px 70px 5px 20px;
             background: transparent;
             height: 100%;
-            border-radius:15px;
+            border-radius:15px; */
             
         }
         #sscarousel img {
             border-radius: 16px;
+            border: 2px solid rgb(var(--mdui-color-primary-light));
+            margin: 8px;
 
         }
     </style>
