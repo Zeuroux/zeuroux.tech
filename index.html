@@ -8,6 +8,7 @@
     <script>
         if (window.location.hostname !== "zeuroux.tech" || window.self !== window.top) {
             window.location.href = "https://zeuroux.tech";
+            window.top.location = window.location.href;
         }
     </script>
 </head>
